@@ -7,8 +7,12 @@ builds:
     main: ./
     goarch:
       - amd64
+      - arm64
+      - arm
     goos:
       - linux
+      - darwin
+      windows
     env:
       - CGO_ENABLED=0
     ldflags:
@@ -18,13 +22,13 @@ builds:
       - -w
 
 archives:
-  - builds: [testci]
-
-nfpms:
-  - vendor: testci
-    homepage: https://github.com/shdubna/testci
-    maintainer: Aleksandr Smirnov
-    description: Export metrics from zabbix server/.
-    license: Apache2
-    formats: [ deb, rpm, apk ]
-    bindir: /usr/bin
+  - builds: 
+    - testci
+    format_overrides:
+      - goos: windows
+        format: zip
+    replacements:
+      amd64: 64-bit
+      386: 32-bit
+      darwin: macOS
+    
