@@ -1,0 +1,30 @@
+before:
+  hooks:
+  - make dep
+
+builds:
+  - binary: testci
+    main: ./cmd
+    goarch:
+      - amd64
+    goos:
+      - linux
+    env:
+      - CGO_ENABLED=0
+    ldflags:
+      - -a -installsuffix cgo
+      - -X github.com/lesovsky/pgcenter/internal/version.gitTag={{.Tag}}
+      - -s
+      - -w
+
+archives:
+  - builds: [testci]
+
+nfpms:
+  - vendor: pgcenter
+    homepage: https://github.com/shdubna/testci
+    maintainer: Aleksandr Smirnov
+    description: Export metrics from zabbix server/.
+    license: Apache2
+    formats: [ deb, rpm, apk ]
+    bindir: /usr/bin
