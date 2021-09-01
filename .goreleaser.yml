@@ -13,7 +13,7 @@ builds:
       - CGO_ENABLED=0
     ldflags:
       - -a -installsuffix cgo
-      - -X github.com/shdubna/testci/internal/version.gitTag={{.Tag}}
+      - -X main.gitTag={{.Tag}}
       - -s
       - -w
 
