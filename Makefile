@@ -19,3 +19,9 @@ build: dep ## Build executable.
 clean: ## Clean build directory.
 	rm -f ./bin/${PROGRAM_NAME}
 	rmdir ./bin
+
+docker-build: ## Build docker image
+	docker build -t ${REGISTRY}/${IMAGE_NAME}:${TAG} .
+
+docker-push: ## Push docker image to registry
+	docker push ${REGISTRY}/${IMAGE_NAME}:${TAG}
