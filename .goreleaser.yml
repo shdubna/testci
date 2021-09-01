@@ -4,7 +4,7 @@ before:
 
 builds:
   - binary: testci
-    main: ./cmd
+    main: ./
     goarch:
       - amd64
     goos:
