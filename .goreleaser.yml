@@ -52,8 +52,8 @@ changelog:
 dockers:
   - dockerfile: Dockerfile
     image_templates:
-      - "ghcr.io/shdubna/zabbix-exporter:{{ .Version }}"
-      - "ghcr.io/shdubna/zabbix-exporter:latest"
+      - "ghcr.io/shdubna/testci:{{ .Version }}"
+      - "ghcr.io/shdubna/testci:latest"
     build_flag_templates:
       - "--pull"
       - "--label=org.opencontainers.image.created={{.Date}}"

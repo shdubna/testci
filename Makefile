@@ -1,7 +1,6 @@
 PROGRAM_NAME = zabbix_exporter
 
-#TAG=$(shell git describe --tags |cut -d- -f1)
-TAG="v1.0.0"
+TAG=$(shell git describe --tags |cut -d- -f1)
 
 LDFLAGS = -ldflags "-X main.gitTag=${TAG} -s -w"
 
@@ -12,7 +11,8 @@ help: ## Display this help screen.
 dep: ## Download the dependencies.
 	go mod download
 
-build: dep ## Build executable.
+build: ## Build executable.
+    dep 
 	mkdir -p ./bin
 	CGO_ENABLED=0 GOOS=linux GOARCH=${GOARCH} go build ${LDFLAGS} -o bin/${PROGRAM_NAME} ./
 

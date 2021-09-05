@@ -5,5 +5,5 @@ COPY . .
 RUN make build
 
 FROM alpine
-COPY --from=build /app/bin/zabbix_exporter /bin/testci
+COPY --from=build /app/bin/testci /bin/testci
 CMD ["testci"]
