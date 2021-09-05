@@ -10,14 +10,6 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  checkbarnch:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Exit if not on main branch
-        if: endsWith(github.ref, 'main') == false
-        run: exit -1
 
   goreleaser:
     runs-on: ubuntu-latest

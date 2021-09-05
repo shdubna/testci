@@ -61,9 +61,7 @@ dockers:
       - "--label=org.opencontainers.image.revision={{.FullCommit}}"
       - "--label=org.opencontainers.image.version={{.Version}}"
       - "--label=org.opencontainers.image.licenses=Apache2.0"
-
       - "--platform=linux/amd64"
-      - "--target=goreleaser"
     goos: linux
     goarch: amd64
-    use_buildx: true
+    use: docker
