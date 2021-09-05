@@ -3,7 +3,7 @@ ARG version="0.1"
 
 FROM golang:1.17 as build
 WORKDIR /app
-COPY ./* ./
+ADD ./* ./
 RUN make build
 
 FROM alpine
