@@ -2,52 +2,52 @@ before:
   hooks:
   - make dep
 
-# builds:
-#   - binary: testci
-#     main: ./
-#     goarch:
-#       - amd64
-#       - arm64
-#       - arm
-#     goos:
-#       - linux
-#       - darwin
-#       - windows
-#     env:
-#       - CGO_ENABLED=0
-#     ldflags:
-#       - -a -installsuffix cgo
-#       - -X main.gitTag={{.Tag}}
-#       - -s
-#       - -w
+builds:
+  - binary: testci
+    main: ./
+    goarch:
+      - amd64
+      - arm64
+      - arm
+    goos:
+      - linux
+      - darwin
+      - windows
+    env:
+      - CGO_ENABLED=0
+    ldflags:
+      - -a -installsuffix cgo
+      - -X main.gitTag={{.Tag}}
+      - -s
+      - -w
 
-# archives:
-#   - builds: 
-#     - testci
-#     format_overrides:
-#       - goos: windows
-#         format: zip
-#     replacements:
-#       amd64: 64-bit
-#       386: 32-bit
-#       darwin: macOS
+archives:
+  - builds: 
+    - testci
+    format_overrides:
+      - goos: windows
+        format: zip
+    replacements:
+      amd64: 64-bit
+      386: 32-bit
+      darwin: macOS
       
-# checksum:
-#   name_template: 'checksums.txt'
+checksum:
+  name_template: 'checksums.txt'
 
-# snapshot:
-#   name_template: "{{ .Tag }}-next"
+snapshot:
+  name_template: "{{ .Tag }}-next"
 
-# changelog:
-#   sort: asc
-#   filters:
-#     exclude:
-#       - '^docs:'
-#       - '^test:'
-#       - '^WIP:'
-#       - Merge pull request
-#       - Merge branch
-#       - go mod tidy
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
+      - '^WIP:'
+      - Merge pull request
+      - Merge branch
+      - go mod tidy
 
 dockers:
   - dockerfile: Dockerfile
