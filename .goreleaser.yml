@@ -62,8 +62,8 @@ dockers:
       - "--label=org.opencontainers.image.version={{.Version}}"
       - "--label=org.opencontainers.image.licenses=Apache2.0"
       - "--platform=linux/amd64"
-      - "--build-arg name={{.ProjectName}}"
-      - "--build-arg version={{.Version}}"
+      - "--build-arg=name={{.ProjectName}}"
+      - "--build-arg=version={{.Version}}"
     goos: linux
     goarch: amd64
     use: docker
