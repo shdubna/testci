@@ -1,6 +1,6 @@
 before:
   hooks:
-  - make dep
+  - go mod tidy
 
 builds:
   - binary: testci
