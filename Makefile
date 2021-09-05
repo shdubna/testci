@@ -11,8 +11,7 @@ help: ## Display this help screen.
 dep: ## Download the dependencies.
 	go mod download
 
-build: ## Build executable.
-    dep 
+build: dep ## Build executable.
 	mkdir -p ./bin
 	CGO_ENABLED=0 GOOS=linux GOARCH=${GOARCH} go build ${LDFLAGS} -o bin/${PROGRAM_NAME} ./
 
