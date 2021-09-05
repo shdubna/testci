@@ -52,8 +52,8 @@ changelog:
 dockers:
   - dockerfile: Dockerfile
     image_templates:
-      - "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:{{ .Version }}"
-      - "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest"
+      - "${{ .Env.REGISTRY }}/{{ .Env.IMAGE_NAME }}:{{ .Version }}"
+      - "${{ .Env.REGISTRY }}/${{ .Env.IMAGE_NAME }}:latest"
     build_flag_templates:
       - "--pull"
       - "--label=org.opencontainers.image.created={{.Date}}"
