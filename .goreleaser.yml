@@ -52,8 +52,8 @@ changelog:
 dockers:
   - dockerfile: Dockerfile
     image_templates:
-      - "ghcr.io/helmwave/helmwave:{{ .Version }}"
-      - "ghcr.io/helmwave/helmwave:latest"
+      - "ghcr.io/shdubna/zabbix-exporter:{{ .Version }}"
+      - "ghcr.io/shdubna/zabbix-exporter:latest"
     build_flag_templates:
       - "--pull"
       - "--label=org.opencontainers.image.created={{.Date}}"
