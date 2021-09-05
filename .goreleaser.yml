@@ -7,8 +7,6 @@ builds:
     main: ./
     goarch:
       - amd64
-      - arm64
-      - arm
     goos:
       - linux
       - darwin
@@ -29,7 +27,6 @@ archives:
         format: zip
     replacements:
       amd64: 64-bit
-      386: 32-bit
       darwin: macOS
       
 checksum:
