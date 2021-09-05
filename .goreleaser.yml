@@ -66,4 +66,4 @@ dockers:
       - "--build-arg=version={{.Version}}"
     goos: linux
     goarch: amd64
-    use: buildx
+    use: docker
